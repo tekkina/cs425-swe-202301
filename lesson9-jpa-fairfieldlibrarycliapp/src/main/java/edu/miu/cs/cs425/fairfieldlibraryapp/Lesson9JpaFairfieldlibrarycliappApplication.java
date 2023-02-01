@@ -95,7 +95,7 @@ public class Lesson9JpaFairfieldlibrarycliappApplication implements CommandLineR
 
 //        var annaSmith = new Author(null, "Anna", "Smith", null);
 //        var bobJones = new Author(null, "Bob", "Jones", null);
-//        var coreJava = new Book(null, "isbn", ""Core Java, Volume 1")
+//        var coreJava = new Book(null, "978-00098", ""Core Java, Volume 1")
 
         System.out.println("FairfieldLibraryCLIAPP completed");
     }
