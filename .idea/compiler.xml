@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="fairfieldlibraryapp (1)" />
         <module name="fairfieldlibraryapp (2)" />
+        <module name="fairfieldlibraryapp (3)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="fairfieldlibraryapp" options="-parameters" />
       <module name="fairfieldlibraryapp (1)" options="-parameters" />
       <module name="fairfieldlibraryapp (2)" options="-parameters" />
+      <module name="fairfieldlibraryapp (3)" options="-parameters" />
     </option>
   </component>
 </project>
