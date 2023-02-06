@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>MIU :: Student E-registration  </title>
+  <link rel ="stylesheet" th:href="@{/css/list.css}" type="text/css">
+</head>
+<body>
+<header th:replace="fragments/header ::header"></header>
+id="mainContainer" class="container">
+<div style="width: 100%;">
+  <h3 style="display: inline;">Our Students</h3>
+  <span style="float: right;">
+                <a class="btn btn-outline-primary btn-lg" href="/registration/new">
+                    <i class="fa-brands fa-product-hunt"></i> Add a New Student
+                </a>
+            </span>
+</div>
+<hr/>
+<div style="font-size: 1em">
+<h1>List of All Students</h1>
+<section>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Student number</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">CGP</th>
+      <th scope="col">Date of Enrolment</th>
+      <th scope="col">International Student</th>
+      <th scope="col">Class Room</th>
+
+    </tr>
+    </thead>
+    <tbody>
+<tr  th:each="student, counter: ${students}">
+<!--  <th scope="row" th:text="${counter.count}+${'.'}"></th>-->
+  <th th:text="${counter.count}"></th>
+  <td th:text="${student.studentNumber}"></td>
+  <td th:text="${student.firstName}"></td>
+  <td th:text="${student.middleName}"></td>
+  <td th:text="${student.lastName}"></td>
+  <td th:text="${student.cgp}"></td>
+  <td th:text="${student.dateOfEnrollment}"></td>
+  <td th:text="${student.internationalStudent}"></td>
+    </tbody>
+  </table>
+</section>
+<td>
+  <a th:href="@{'/registaration/edit/{studentId}'(studentId=${student.studentId})}">
+    <i class="fa-regular fa-pen-to-square"></i> Edit Student
+  </a>
+</td>
+<td>
+  <a th:href="@{'/registration/delete/{studentId}'(studentId=${student.studentId})}">
+    <i class="fa-solid fa-delete-left"></i> Delete Student
+  </a>
+
+</td>
+</tr>
+<tr th:if="${students.isEmpty()}">
+  <td colspan="8" th:align="center">No Students found</td>
+</tr>
+</tbody>
+</table>
+<!--Pagination-->
+<div>
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">Pages: </a>
+    </li>
+    <li th:each="i : ${#numbers.sequence(1, students.totalPages)}"
+        th:class="${currentPageNo==${'i-1'}?'page-item active':'page-item'}">
+      <a th:href="@{/registration/list(pageNo=${'i-1'})}"
+         th:text="${i}" class = "page-link"></a>
+    </li>
+  </ul>
+</div>
+</div>
+</div>
+<footer  th:replace="fragments/footer  ::footer"></footer>
+</body>
+</html>
