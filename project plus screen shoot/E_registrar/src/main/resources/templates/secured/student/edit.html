@@ -12,7 +12,7 @@
 <header th:replace="fragments/header ::header"></header>
 <main>
   <h1>Student Form Page</h1>
-  <form id="studentForm" method="post" action="/update" th:object="${student}">
+  <form id="studentForm" method="post" action="/student/update" th:object="${student}">
     <fieldset>
       <div class="col-md-12">
         <input type="hidden" name="studentId" th:value="${student.studentId}" />
@@ -112,7 +112,7 @@
       <div>
         <div style="float:right;">
           <button id="btnReset" type="reset" class="btn btn-outline-info" style="margin-right: 2em;">Reset</button>
-          <a href="/list" class="btn btn-outline-danger" style="margin-right: 2em;">Cancel</a>
+          <a href="/student/list" class="btn btn-outline-danger" style="margin-right: 2em;">Cancel</a>
           <button id="btnSubmit" type="submit" class="btn btn-outline-green"> Confirm Change</button>
         </div>
       </div>

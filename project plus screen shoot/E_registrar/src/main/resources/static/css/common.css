@@ -14,3 +14,14 @@ footer{
     width:100%;
     background-color: navajowhite;
 }
+.td-gap, th-gap {
+    width:5vw;
+}
+.tr-gap {
+  border:1px solid black;
+}
+.main-shift {
+
+    padding-left:5vw;
+   padding-right:35vw;
+}
