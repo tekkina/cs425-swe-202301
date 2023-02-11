@@ -39,40 +39,6 @@
             </nav>
         </div>
     </section>
-<!--#####################################################################-->
-    <section style="margin-top: 1em;">
-<!--        <div th:switch = "${students.isEmpty()}">-->
-<!--        <div th:case="false">-->
-        <div th:if="${!students.isEmpty()}">
-        <table style="border:1px; padding:20px;">
-            <thead>
-            <tr class="tr-line">
-                <th>#</th>
-                <th class="gap">Student Number</th>
-                <th class="gap">First Name </th>
-                <th class="gap">Middle Name </th>
-                <th class="gap">Last Name </th>
-                <th class="gap">GPA</th>
-                <th class="gap">Date of Enrollment </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="tr-line" th:each="student, counter: ${students}" style="border:1px solid black">
-                <th class="gap" th:text="${counter.count}"></th>
-                <td class="gap" th:text="${student.studentNumber}"></td>
-                <td class="gap" th:text="${student.firstName}"></td>
-                <td class="gap" th:text="${student.middleName}"></td>
-                <td class="gap" th:text="${student.lastName}"></td>
-                <td class="gap" th:text="${student.cgp}"></td>
-                <td class="gap" th:text="${student.dateOfEnrollment}"></td>
-
-            </tbody>
-        </table>
-        </div>
-        <div th:if="${students.isEmpty()}">
-            <b>Student not found!!</b>
-        </div>
-    </section>
 </main>
 <footer  th:replace="fragments/footer  ::footer"></footer>
 </body>

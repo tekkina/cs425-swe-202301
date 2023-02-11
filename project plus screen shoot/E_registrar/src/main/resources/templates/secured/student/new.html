@@ -7,9 +7,9 @@
 </head>
 <body>
 <header th:replace="fragments/header ::header"></header>
-<main class="main-shift">
+<main class="shift">
   <h1>Registration Form</h1>
-  <form id="studentForm" method="post" action="/student/new" th:object="${student}">
+  <form id="studentForm" method="post" action="/get/info/new" th:object="${student}">
     <fieldset>
       <div class="col-md-12">
         <input type="hidden" name="studentId" th:value="${student.studentId}" />
@@ -76,7 +76,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label th:for="${'primaryClassroom.buildingName'}">primary Classroom building Name:</label>
+              <label th:for="${'primaryClassroom.buildingName'}">Building Name:</label>
               <span th:if="${#fields.hasErrors('primaryClassroom.buildingName')}" th:errors="*{primaryClassroom.buildingName}"
                     class="alert alert-danger"></span>
               <input type="text" class="form-control" th:field="*{primaryClassroom.buildingName}">
@@ -86,7 +86,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label th:for="${'primaryClassroom.roomNumber'}">primary Classroom room Number:</label>
+              <label th:for="${'primaryClassroom.roomNumber'}">Room No.:</label>
               <span th:if="${#fields.hasErrors('primaryClassroom.roomNumber')}" th:errors="*{primaryClassroom.roomNumber}"
                     class="alert alert-danger"></span>
               <input type="text" class="form-control" th:field="*{primaryClassroom.roomNumber}">
@@ -105,10 +105,11 @@
           </div>
         </div>
       </div><br>
+
       <div>
         <div style="justify-content: center">
           <button id="btnReset" type="reset" class="btn btn-outline-secondary" style="margin-right: 2em;">Reset</button>
-          <a href="/student/list" class="btn btn-outline-danger" style="margin-right: 2em;">Cancel</a>
+          <a href="/get/info/list" class="btn btn-outline-danger" style="margin-right: 2em;">Cancel</a>
           <button id="btnSubmit" type="submit" class="btn btn-outline-success">Register student</button>
         </div>
       </div>

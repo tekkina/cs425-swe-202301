@@ -33,7 +33,7 @@ public class Student {
     private  String lastName;
     @Column(name = "cgpa", nullable = true)
     private Double cgp;
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfEnrollment;
 
     @OneToOne(cascade = CascadeType.ALL)

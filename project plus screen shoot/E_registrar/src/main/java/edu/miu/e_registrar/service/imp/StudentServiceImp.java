@@ -32,7 +32,7 @@ public class StudentServiceImp implements StudentService {
     }
     @Override
     public Iterable<Student> getAllStudents() {
-        return studentRepository.findAll();
+        return studentRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
     }
     @Override
     public Page<Student> getAllStudentsPaged(Integer pageNo) {

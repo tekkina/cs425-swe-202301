@@ -20,11 +20,11 @@ img {
     height: 100%;
 }
 
-.welcome {
-    text-align:center;
-    font-size:200%;
-    color:navy;
-}
+/*.welcome {*/
+/*    text-align:center;*/
+/*    font-size:200%;*/
+/*    color:navy;*/
+/*}*/
 .div-image{
     height:35vh;
 }
@@ -43,4 +43,33 @@ footer{
     bottom:0;
     width:100%;
     background-color: navajowhite;
+}
+.welcome{
+    text-align:center;
+    font-size:250%;
+    color:navy;
+    text-transform: uppercase;
+    background-image:linear-gradient(-200deg,
+    green 10%,
+    yellow 20%,
+    red 25%,
+    #e4e1ef 30%,
+    #44107a 40%,
+    red 50%,
+    lightcoral 70%,
+    blue 90%,
+    pink 100%);
+    background-clip: border-box;
+    background-size: 250% auto;
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 8s linear infinite;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 250% center;
+    }
 }

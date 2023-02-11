@@ -10,11 +10,12 @@
 <div style="width: 100%;">
   <h1 style="display: inline;margin-left:25vw">Registered students on file</h1>
   <span style="float: right;margin-right:10vw;"><h1>
-                <a class="btn btn-outline-secondary btn-lg" href="/new">
+                <a class="btn btn-outline-secondary btn-lg" href="/get/info/new">
                     <i class="fa-brands fa-product-hunt"></i> Register Student</a></h1>
   </span>
 </div>
 <hr/>
+<div>
 <div style="font-size: 1em">
 <section style= "width:70vw; margin-left:5vw">
   <table class="table">
@@ -30,30 +31,30 @@
     </tr>
     </thead>
     <tbody>
-<tr  th:each="student, counter: ${students}">
-<!--  <th scope="row" th:text="${counter.count}+${'.'}"></th>-->
-  <th th:text="${counter.count}"></th>
-  <td th:text="${student.studentNumber}"></td>
-  <td th:text="${student.firstName}"></td>
-  <td th:text="${student.middleName}"></td>
-  <td th:text="${student.lastName}"></td>
-  <td th:text="${student.cgp}"></td>
-  <th th:text ="${student.dateOfEnrollment}">></th>
-  <td>
-    <a th:href="@{'/edit/{studentId}'(studentId=${student.studentId})}">
-      <button type="button" class="btn btn-success" style="width:5vw">Edit </button>
-    </a>
-
-    <a th:href="@{'/delete/{studentId}'(studentId=${student.studentId})}">
+    <tr  th:each="student, counter: ${students}">
+      <th th:text="${counter.count}"></th>
+      <td th:text="${student.studentNumber}"></td>
+      <td th:text="${student.firstName}"></td>
+      <td th:text="${student.middleName}"></td>
+      <td th:text="${student.lastName}"></td>
+      <td th:text="${student.cgp}"></td>
+      <th th:text ="${student.dateOfEnrollment}">></th>
+      <td>
+        <a th:href="@{'/info/edit/{studentId}'(studentId=${student.studentId})}">
+          <button type="button" class="btn btn-success" style="width:5vw">Edit </button>
+        </a>
+        <a th:href="@{'/get/info/delete/{studentId}'(studentId=${student.studentId})}">
       <button type="button" class="btn btn-danger" style = "width:8vw"> Delete</button>
-    </a>
-  </td>
-  </tr>
-</tbody>
-</table>
+        </a>
+      </td>
+    </tr>
+    <tr th:if="${students.isEmpty()}"><td colspan="8" th:align="center">No Students found</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 </div>
-<footer  th:replace="fragments/footer  ::footer"></footer>
-
+</div>
+<footer th:replace="fragments/footer  ::footer"></footer>
 </body>
 </html>

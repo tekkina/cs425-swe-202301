@@ -20,8 +20,7 @@ footer{
 .tr-gap {
   border:1px solid black;
 }
-.main-shift {
-
+.shift {
     padding-left:5vw;
-   padding-right:35vw;
+    padding-right:35vw;
 }

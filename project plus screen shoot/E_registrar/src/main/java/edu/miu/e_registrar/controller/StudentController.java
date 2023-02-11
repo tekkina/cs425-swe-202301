@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = {"/","/student"})
+@RequestMapping(value = {"/","/info","/get/info"})
 public class StudentController {
     private StudentService studentService;
 
@@ -44,7 +44,7 @@ public class StudentController {
 
         studentService.addNewStudent(student);
         studentService.addNewStudent(student);
-        return "redirect:/secured/student/list";
+        return "redirect:/get/info/list";
     }
     @GetMapping(value = {"/edit/{studentId}"})
     public String editStudent(@PathVariable Integer studentId, Model model) {
@@ -54,7 +54,7 @@ public class StudentController {
             model.addAttribute("student", student);
             return "secured/student/edit";
         }
-        return "redirect:/secured/student/list";
+        return "redirect:/get/info/list";
     }
 
     @PostMapping(value = {"/update"})
@@ -67,20 +67,19 @@ public class StudentController {
         }
 
         studentService.updateStudent(student);
-        return "redirect:/secured/student/list";
+        return "redirect:/get/info/list";
     }
-
     @GetMapping(value = {"/delete/{studentId}"})
     public String deleteStudent(@PathVariable Integer studentId) {
         studentService.deleteStudentById(studentId);
+        return "redirect:/get/info/list";
+    }
 
-        return "redirect:/secured/student/list";
+    @GetMapping(value = "/showsearch")
+    public String showSearch(){
+        return "secured/student/searchForm";
     }
-    @GetMapping(value = {"/delete/cgp/{studentId}"})
-    public String deleteCGP(@PathVariable Integer studentId) {;
-        studentService.deleteStudentById(studentId);
-        return "redirect:/secured/student/list";
-    }
+
     @GetMapping(value = "/search")
     public ModelAndView studentSearch( String searchString){
         var modelAndView = new ModelAndView();
@@ -89,7 +88,5 @@ public class StudentController {
         modelAndView.addObject("searchString", searchString);
         modelAndView.setViewName("secured/student/search");
         return modelAndView;
-
     }
-
 }
